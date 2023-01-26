@@ -6,7 +6,7 @@ function App() {
   const [downloadLink, setDownloadLink] = useState([])
 
   function convertFile(e) {
-    console.log(e)
+    //console.log(e)
 
     let reader = new FileReader()
 
@@ -16,10 +16,10 @@ function App() {
         let pygConverted = {"chat": ["You: ..."]}
         const result = reader.result
         const json = JSON.parse(result)
-        console.log(json)
+        //console.log(json)
         let messages = json.histories.histories[0].msgs
         let characterName = json.info.character.name
-        console.log(messages)
+        //console.log(messages)
 
         let previous_is_human = false;
 
@@ -40,7 +40,7 @@ function App() {
 
             previous_is_human = messages[i].tgt.is_human
         }
-        console.log(pygConverted)
+        //console.log(pygConverted)
 
         const blob = new Blob([JSON.stringify(pygConverted)], {type:"json"})
         const href = URL.createObjectURL(blob)
